@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="{{url_for('static', path='/favicon.ico')}}">
+    <link href="{{url_for('static', path='/style.css')}}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src='https://unpkg.co/gsap@3/dist/gsap.min.js'></script>
+    <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/DrawSVGPlugin3.min.js'></script>
+    <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/EasePack3.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src="{{url_for('static', path='/script.js')}}"></script>
+    <script>function chkCharCode(event) {
+      const regExp = /[^가-힣]/g;
+      const ele = event.target;
+      if (regExp.test(ele.value)) {
+        ele.value = ele.value.replace(regExp, '');
+      }
+    };</script>
+    <title>TTS</title>
+  </head>
+  <body>
+    <div class="wave">
+      <svg id="mainSVG" xmlns="http://www.w3.org/2000/svg" width="100%" height="400px" viewBox="0 0 800 600">
+        <linearGradient id="grad1" x1="393.05" y1="400" x2="393.05" y2="200" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#993BDC" />
+          <stop offset="1" stop-color="#35AAF9" />
+        </linearGradient>
+        <g id="bg" fill="none" stroke="url(#grad1)" stroke-linecap="square" stroke-miterlimit="10" stroke-width="3">
+          <path d="M594.6,350l-.1-100.29V250" />
+          <line x1="580.5" y1="390" x2="580.32" y2="210" />
+          <line x1="565.5" y1="415" x2="565.28" y2="185" />
+          <line x1="550.5" y1="434" x2="550.24" y2="166" />
+          <line x1="535.5" y1="449" x2="535.22" y2="151" />
+          <line x1="520.5" y1="462" x2="520.2" y2="138" />
+          <line x1="505.5" y1="472" x2="505.18" y2="128" />
+          <line x1="490.5" y1="480" x2="490.16" y2="120" />
+          <line x1="475.5" y1="487" x2="475.14" y2="113" />
+          <line x1="460.5" y1="492" x2="460.14" y2="108" />
+          <line x1="445.5" y1="496" x2="445.12" y2="104" />
+          <line x1="430.5" y1="499" x2="430.12" y2="101" />
+          <line x1="415.5" y1="501" x2="415.12" y2="99" />
+          <line x1="400.5" y1="501" x2="400.12" y2="99" />
+          <line x1="385.5" y1="501" x2="385.12" y2="99" />
+          <line x1="370.5" y1="499" x2="370.12" y2="101" />
+          <line x1="355.5" y1="496" x2="355.12" y2="104" />
+          <line x1="340.5" y1="492" x2="340.14" y2="108" />
+          <line x1="325.5" y1="487" x2="325.14" y2="113" />
+          <line x1="310.5" y1="480" x2="310.16" y2="120" />
+          <line x1="295.5" y1="472" x2="295.18" y2="128" />
+          <line x1="280.5" y1="462" x2="280.2" y2="138" />
+          <line x1="265.5" y1="449" x2="265.22" y2="151" />
+          <line x1="250.5" y1="434" x2="250.24" y2="166" />
+          <line x1="235.5" y1="415" x2="235.28" y2="185" />
+          <line x1="220.5" y1="390" x2="220.32" y2="210" />
+          <polyline points="204.5 350 204.5 350.29 204.5 250" />
+        </g>
+      </svg>
+    </div>
+
+    <div class="content-wrapper">
+        <form method="post">
+          <div class="down-btn">
+            <a class="dl-button">
+            <div>
+                <div class="icon">
+                <div>
+                    <svg class="arrow" viewBox="0 0 20 18" fill="currentColor">
+                    <polygon points="8 0 12 0 12 9 15 9 10 14 5 9 8 9"></polygon>
+                    </svg>
+                    <svg class="shape" viewBox="0 0 20 18" fill="currentColor">
+                    <path d="M4.82668561,0 L15.1733144,0 C16.0590479,0 16.8392841,0.582583769 17.0909106,1.43182334 L19.7391982,10.369794 C19.9108349,10.9490677 19.9490212,11.5596963 19.8508905,12.1558403 L19.1646343,16.3248465 C19.0055906,17.2910371 18.1703851,18 17.191192,18 L2.80880804,18 C1.82961488,18 0.994409401,17.2910371 0.835365676,16.3248465 L0.149109507,12.1558403 C0.0509788145,11.5596963 0.0891651114,10.9490677 0.260801785,10.369794 L2.90908938,1.43182334 C3.16071592,0.582583769 3.94095214,0 4.82668561,0 Z"></path>
+                    </svg>
+                </div><span></span>
+                </div>
+            </div></a>
+            <input type="submit" class="btn" value="&#68;ownload" />
+          </div>
+            <div class="txt-wrapper">
+                <div class="edit-window">
+                    <div class="window-border">
+                    <span class="close"></span>
+                    <span class="minimize"></span>
+                    <span class="maximize"></span>
+                    </div>
+                    <div class="input-area">
+                        <input type="text" class="textarea" name="textIn" maxlength="15" onkeyup="chkCharCode(event)" autofocus>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+          
+      <div class="footer">
+        <iframe width="100%" height="800vh" src="https://www.youtube.com/embed/cxZFUCAwrEM?autoplay=1&loop=1&autopause=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        
+        <div class="subscribe-box">
+          <a href="https://twitter.com/BANDLUCY_mystic" target="_blank"><img class="twitter" src="{{url_for('static', path='/twitter-brands.svg')}}"></a>
+          <a href="https://www.youtube.com/channel/UC23OtuIrtEy_M1vYgTuCJcA" target="_blank"><img class="youtube" src="{{url_for('static', path='/youtube-brands.svg')}}"></a>
+          <a href="mailto:rkive.cloud@gmail.com" target="_blank"><img class="email" src="{{url_for('static', path='/envelope-solid.svg')}}"></a>
+        </div>
+      </div>
+  </body>
+</html>
