@@ -88,7 +88,8 @@ def predict(textIn:list = Form(...)): #input is from forms
         test_step(jamo)
 
     # 음성 파일 생성
-    mel_list = glob.glob(os.path.join(save_dir, '*.npy'))
+    mel_filename = 'mel-' + str(cnt) + '.npy'
+    mel_list = glob.glob(os.path.join(save_dir, mel_filename))
     def test2_step(mel, idx):
         mel = np.expand_dims(mel, axis=0)
         pred = model(mel, is_training=False)
